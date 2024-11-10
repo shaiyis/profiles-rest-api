@@ -11,6 +11,7 @@ or if we want to override the name of the queryset
 """
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 router.register('profile', views.UserProfileViewSet)
+router.register('feed', views.UserProfileFeedViewSet)
 
 urlpatterns = [
     path('hello-view', views.HelloApiView.as_view()),
