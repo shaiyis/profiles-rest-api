@@ -23,7 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y3r4yot3v#+20y0l=%(!#v&+q3^_t)momy@uf+ic_&q8t28(0z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+# When run locally, it will be set by default to 1 (no DEBUG environment
+# variable). When run on production it will take the DEBUG=0 from 
+# supervisor_profiles_api.conf and will be set to 0
+DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = []
 
@@ -123,3 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+
+# The location where Django stores all of the static files
+# when we run our collectstatic command
+STATIC_ROOT = 'static/'
