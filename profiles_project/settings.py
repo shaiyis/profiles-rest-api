@@ -29,7 +29,10 @@ SECRET_KEY = 'y3r4yot3v#+20y0l=%(!#v&+q3^_t)momy@uf+ic_&q8t28(0z'
 # supervisor_profiles_api.conf and will be set to 0
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ec2-98-84-174-145.compute-1.amazonaws.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
